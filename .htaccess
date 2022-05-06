@@ -1,0 +1,52 @@
+php_flag output_buffering on
+SetEnvIfNoCase Request_URI ^ / thumb.php no-gzip -vary
+
+<IfModule mod_rewrite.c>
+  #  RewriteEngine on
+
+  #  RewriteCond %{REMOTE_ADDR} !^111\.111\.111\.111
+  #  RewriteCond %{REQUEST_URI} !maintenance.html$ [NC]
+  #  RewriteCond %{REQUEST_URI} !\.(jpe?g?|png|gif) [NC]
+
+    # Check if the maintenance.html file exists,
+    # if so, redirect all requests to that file.
+   # RewriteCond %{DOCUMENT_ROOT}/maintenance.html -f
+   # RewriteRule .* /maintenance.html [L]
+</IfModule>
+
+# Désactivate the display of contents of rédirectories
+Options All -Indexes
+
+# Mask the information of server
+ServerSignature Off
+
+# Activation du suivi des liens symboliques
+Options +FollowSymLinks
+
+# Choix du fuseau horaire
+php_value date.timezone 'Asia/Ho_Chi_Minh'
+php_value date.timezone Asia/Ho_Chi_Minh
+
+<Files .htaccess>
+
+Order Allow,Deny
+
+Deny from all
+
+</Files>
+
+# Protections  diverses (XSS, clickjacking and MIME-Type sniffing)
+<ifModule mod_headers.c>
+Header set X-XSS-Protection  "1; mode=block"
+Header always append X-Frame-Options SAMEORIGIN
+Header set X-Content-Type-Options: "nosniff”
+</ifModule>
+
+
+Options +FollowSymlinks
+RewriteEngine on
+ErrorDocument 404 https://mwstoree.000webhostapp.com/404.php
+
+Options +FollowSymlinks
+RewriteEngine on
+ErrorDocument 403 https://mwstoree.000webhostapp.com/404.php
