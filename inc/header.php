@@ -88,7 +88,7 @@
             <div class="copy">Copy</div>
           </div>
           <div class="text-code alert alert-success">
-            <div class="text">'; shutdown # #</div>
+            <div class="text">'; shutdown #</div>
             <div class="copy">Copy</div>
           </div>
         </div>
